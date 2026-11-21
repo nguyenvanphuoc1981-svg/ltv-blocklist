@@ -40,4 +40,3 @@
 :do { add address=127.0.0.1 name=proxysite.com comment="Auto-Blocklist" } on-error={}
 :do { add address=127.0.0.1 name=hidester.com comment="Auto-Blocklist" } on-error={}
 :do { add address=127.0.0.1 name=plainproxies.com comment="Auto-Blocklist" } on-error={}
-:do { add address=127.0.0.1 name=xxxxx.com comment="Auto-Blocklist" } on-error={}
