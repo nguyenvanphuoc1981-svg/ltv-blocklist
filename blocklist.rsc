@@ -1,3 +1,4 @@
+/ip dns static add address=127.0.0.1 name=0.0.0.0
 /ip dns static add address=127.0.0.1 name=0.0.0.0.creative.hpyrdr.com
 /ip dns static add address=127.0.0.1 name=0.0.0.0.hpyrdr.com
 /ip dns static add address=127.0.0.1 name=0.ackzany.com
@@ -1997,4 +1998,3 @@
 /ip dns static add address=127.0.0.1 name=523betapp.site
 /ip dns static add address=127.0.0.1 name=5241.it
 /ip dns static add address=127.0.0.1 name=52535.sbs
-/ip dns static add address=127.0.0.1 name=5290727.fls.doubleclick.net
