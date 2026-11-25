@@ -2,8 +2,8 @@ name: Tu dong cap nhat Blocklist cho MikroTik
 
 on:
   schedule:
-    - cron: '0 18 * * *' # Tự động chạy lúc 01:00 sáng hàng ngày (giờ VN)
-  workflow_dispatch:      # Cho phép bấm nút chạy tay bất cứ lúc nào
+    - cron: '0 18 * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -16,10 +16,8 @@ jobs:
 
       - name: Tai va chuyen doi sang dinh dang MikroTik
         run: |
-          # Tải danh sách chặn web đen/cờ bạc/độc hại tinh gọn
-          curl -sL "https://githubusercontent.com" -o raw_hosts.txt
-          
-          # Lọc lấy 2000 tên miền đầu tiên (tránh đầy RAM Router) và chuyển sang lệnh RouterOS
+          DOMAIN="raw.""githubusercontent.com"
+          curl -fsSL "https://${DOMAIN}/StevenBlack/hosts/master/alternates/gambling-porn/hosts" -o raw_hosts.txt
           grep -E "^0\.0\.0\.0 [a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" raw_hosts.txt | awk '{print $2}' | grep -vE "google|microsoft|apple|facebook|zalo|edu\.vn|gov\.vn" | sort -u | head -n 2000 | awk '{print "/ip dns static add address=127.0.0.1 name=" $1}' > blocklist.rsc
 
       - name: Luu file blocklist.rsc moi len GitHub
